@@ -200,3 +200,27 @@ INSERT INTO `usuario` (`cod_usu`, `nombre`, `correo`, `contrasena`, `rol`) VALUE
 INSERT INTO `usuario` (`cod_usu`, `nombre`, `correo`, `contrasena`, `rol`) VALUES (NULL, 'Derick', 'derick@gmail.com', 'kcired', 'administrador');
 
 
+-- tamaño
+INSERT INTO `tamano` (`cod_Tam`, `nombre`) VALUES ('10001', 'grande');
+INSERT INTO `tamano` (`cod_Tam`, `nombre`) VALUES ('10002', 'mediano');
+INSERT INTO `tamano` (`cod_Tam`, `nombre`) VALUES ('10003', 'pequeña');
+
+
+INSERT INTO `pizza_categoria` (`cod_cate`, `nombre`, `imagen`, `descripcion`) VALUES ('CAT0001', 'Hawaiana', 'Hawaiana.jpg', 'Pizza con queso, jamón y rodajas de piña.');
+INSERT INTO `pizza_categoria` (`cod_cate`, `nombre`, `imagen`, `descripcion`) VALUES ('CAT0002', 'Americana', 'Americana.jpg', 'Pizza con salsa de tomate, queso y rodajas de jamón.');
+
+
+INSERT INTO `pizza` (`cod_pizza`, `detalle`, `precio`, `pizza_categoria_cod_cate`, `tamano_cod_Tam`) VALUES ('PIZ0001', 'PIZZA BIEN HECHA PARA SUS GUSTOS', '24.50', 'CAT0001', '10002');
+INSERT INTO `pizza` (`cod_pizza`, `detalle`, `precio`, `pizza_categoria_cod_cate`, `tamano_cod_Tam`) VALUES ('PIZ0002', 'PIZZA JFRNAOFWA', '39.99', 'CAT0002', '10001');
+
+INSERT INTO `gaseosa` (`cod_gaseosa`, `marca`, `tamano`, `precio`, `descripcion`, `imagen`) VALUES ('GAS0001', 'COCACOLA', '1 LITRO', '6.5', 'Cocacola de un litro listo para tomar con tus causas.', 'cocacola1L.jsp');
+INSERT INTO `gaseosa` (`cod_gaseosa`, `marca`, `tamano`, `precio`, `descripcion`, `imagen`) VALUES ('GAS0002', 'FANTA', '650 mililitrios', '4', 'Toma tu fanta que te vuelve fantastico XD.', 'fantastico.jsp');
+
+INSERT INTO `promocion_pizza` (`cod_prom`, `nombre`, `cant_pizza`, `cantidad_gaseosa`, `img`, `precio`, `Pizza_cod_pizza`, `gaseosa_cod_gaseosa`) VALUES ('PRO0001', 'Promo alien', '2', '3', 'proA.jpg', '27.5', 'PIZ0001', 'GAS0002');
+INSERT INTO `promocion_pizza` (`cod_prom`, `nombre`, `cant_pizza`, `cantidad_gaseosa`, `img`, `precio`, `Pizza_cod_pizza`, `gaseosa_cod_gaseosa`) VALUES ('PRO0002', 'Promo del mañana', '2', '4', 'proM', '49.90', 'PIZ0001', 'GAS0001');
+
+INSERT INTO `orden` (`cod_orden`, `Nobre`, `fecha`, `usuario_cod_usu`) VALUES ('1', '98653245 Rosalía villegas', '2023-07-10', '4');
+INSERT INTO `orden` (`cod_orden`, `Nobre`, `fecha`, `usuario_cod_usu`) VALUES ('2', '68952347 Juliana Alvarés', '2023-07-16', '3');
+INSERT INTO `orden` (`cod_orden`, `Nobre`, `fecha`, `usuario_cod_usu`) VALUES (NULL, '85296374 Mariana Guzman', '2023-07-06', '1');
+INSERT INTO `orden` (`cod_orden`, `Nobre`, `fecha`, `usuario_cod_usu`) VALUES (NULL, '85964852 Keith Gomez', '2023-07-06', '2');
+
