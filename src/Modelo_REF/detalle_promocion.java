@@ -14,7 +14,11 @@ public class detalle_promocion {
     private int cantidad;
     private double precio;  
 
-    public detalle_promocion() {
+    public detalle_promocion(orden ord, promocion_pizza prom, int cantidad, double precio) {
+        this.ord = ord;
+        this.prom = prom;
+        this.cantidad = cantidad;
+        this.precio = precio;
     }
 
     public orden getOrd() {

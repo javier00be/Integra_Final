@@ -14,8 +14,12 @@ public class orden {
     private String nombre;
     private usuario usu;
 
-    public orden() {
-    }
+    public orden(int cod_orden, String fecha, String nombre, usuario usu) {
+        this.cod_orden = cod_orden;
+        this.fecha = fecha;
+        this.nombre = nombre;
+        this.usu = usu;
+    }        
 
     public int getCod_orden() {
         return cod_orden;

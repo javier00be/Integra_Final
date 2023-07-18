@@ -14,8 +14,14 @@ public class detalle_pizza {
     private int cantidad;
     private double pago;
 
-    public detalle_pizza() {
+    public detalle_pizza(orden ord, pizza piz, int cantidad, double pago) {
+        this.ord = ord;
+        this.piz = piz;
+        this.cantidad = cantidad;
+        this.pago = pago;
     }
+    
+    
 
     public orden getOrd() {
         return ord;
