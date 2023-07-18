@@ -14,9 +14,13 @@ public class detalle_gaseosa {
     private int cantidad;
     private double precio;
 
-    public detalle_gaseosa() {
+    public detalle_gaseosa(orden ord, gaseosas gas, int cantidad, double precio) {
+        this.ord = ord;
+        this.gas = gas;
+        this.cantidad = cantidad;
+        this.precio = precio;
     }
-
+    
     public orden getOrd() {
         return ord;
     }

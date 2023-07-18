@@ -10,7 +10,7 @@ package Modelo_REF;
  */
 public class metodo_pago {
     private int cod_met;
-    private int tipo_pago;
+    private String tipo_pago;
 
     public metodo_pago() {
     }
@@ -23,12 +23,14 @@ public class metodo_pago {
         this.cod_met = cod_met;
     }
 
-    public int getTipo_pago() {
+    public String getTipo_pago() {
         return tipo_pago;
     }
 
-    public void setTipo_pago(int tipo_pago) {
+    public void setTipo_pago(String tipo_pago) {
         this.tipo_pago = tipo_pago;
     }
+
+
     
 }
