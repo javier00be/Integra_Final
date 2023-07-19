@@ -14,7 +14,12 @@ import java.util.*;
 public class prueba {
     public static void main(String[] args) {
         dao d = new dao();
+        dao_grafic dou = new dao_grafic();
         
+        List<zgrafico_FAC_x_MES> list = dou.listgrafPIZ_MES("2023");
+        for(zgrafico_FAC_x_MES x:list){
+            System.out.println(x.getCantidad()+"--"+x.getMes()+"--"+x.getSuma());
+        }
 //        String cod = "PRO0001";
 //        String Pcod = cod.substring(0, 3);
 //        System.out.println(""+Pcod);
@@ -122,18 +127,18 @@ public class prueba {
 //        metodo_pago meto1 = d.busmetodo(1002);
 //        System.out.println(meto1.getTipo_pago());
 
-        List<factura> fact = d.lisfactura();
-        for(factura fa: fact){
-            System.out.println(fa.getCod_fac()+"--"+fa.getOrd().getCod_orden()+"--"+fa.getPago());
-        }
-
-        factura a=new factura();
-                a.setFecha("2022-08-12");
-                a.setPago(100.00);
-                a.setMet(d.busmetodo(1001));
-                a.setOrd(d.busorden(4));
-        
-                d.addfactura(a);
+//        List<factura> fact = d.lisfactura();
+//        for(factura fa: fact){
+//            System.out.println(fa.getCod_fac()+"--"+fa.getOrd().getCod_orden()+"--"+fa.getPago());
+//        }
+//
+//        factura a=new factura();
+//                a.setFecha("2022-08-12");
+//                a.setPago(100.00);
+//                a.setMet(d.busmetodo(1001));
+//                a.setOrd(d.busorden(4));
+//        
+//                d.addfactura(a);
         
     }
 }

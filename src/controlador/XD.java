@@ -4,19 +4,14 @@
  */
 package controlador;
 
-import DAO.dao;
-import Modelo_REF.*;
 
 /**
  *
  * @author sebas
  */
-public class INIT {
-    
+public class XD {
     public static void main (String[] args){
-        dao d = new dao();
-        usuario usu = d.bususuario(1);//obj.bususuario(1)
-        Controlador_Empleado empleado = new Controlador_Empleado(usu);
-    }
 
+        Controlador_grafico grafico = new Controlador_grafico();
+    }
 }

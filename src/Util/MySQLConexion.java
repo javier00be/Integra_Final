@@ -20,7 +20,7 @@ public class MySQLConexion {
 		System.out.println("conexion ok");
 		} catch (ClassNotFoundException ex)
 		{ System.out.println("No hay Driver!!"); } 
-		catch (SQLException ex) { System.out.println("Error con la BD "); }
+		catch (SQLException ex) { System.out.println("Error con la BD "+ex); }
 		return con; 
         }
 }

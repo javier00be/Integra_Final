@@ -225,9 +225,13 @@ INSERT INTO `orden` (`cod_orden`, `Nobre`, `fecha`, `usuario_cod_usu`) VALUES ('
 INSERT INTO `orden` (`cod_orden`, `Nobre`, `fecha`, `usuario_cod_usu`) VALUES ('2', '68952347 Juliana Alvarés', '2023-07-16', '3');
 INSERT INTO `orden` (`cod_orden`, `Nobre`, `fecha`, `usuario_cod_usu`) VALUES (NULL, '85296374 Mariana Guzman', '2023-07-06', '1');
 INSERT INTO `orden` (`cod_orden`, `Nobre`, `fecha`, `usuario_cod_usu`) VALUES (NULL, '85964852 Keith Gomez', '2023-07-06', '2');
+ INSERT INTO `orden` (`cod_orden`, `Nobre`, `fecha`, `usuario_cod_usu`) VALUES (NULL, '85964852 DDDD DDDD', '2023-05-06', '2'); 
+ INSERT INTO `orden` (`cod_orden`, `Nobre`, `fecha`, `usuario_cod_usu`) VALUES (NULL, '85964852 FFFF FFFF', '2023-05-06', '2');
 
 INSERT INTO `detalle_pizza` (`cantidad`, `precio`, `Orden_cod_orden`, `Pizza_cod_pizza`) VALUES ('2', '79', '1', 'P0002');
 INSERT INTO `detalle_pizza` (`cantidad`, `precio`, `Orden_cod_orden`, `Pizza_cod_pizza`) VALUES ('1', '49', '2', 'P0001');
+ INSERT INTO `detalle_pizza` (`cantidad`, `precio`, `Orden_cod_orden`, `Pizza_cod_pizza`) VALUES ('1', '49', '5', 'P0001');--
+ INSERT INTO `detalle_pizza` (`cantidad`, `precio`, `Orden_cod_orden`, `Pizza_cod_pizza`) VALUES ('1', '49', '6', 'P0001');
 
 INSERT INTO `detalle_gaseosa` (`cantidad`, `precio`, `Orden_cod_orden`, `gaseosa_cod_gaseosa`) VALUES ('2', '13', '1', 'G0001');
 INSERT INTO `detalle_gaseosa` (`cantidad`, `precio`, `Orden_cod_orden`, `gaseosa_cod_gaseosa`) VALUES ('3', '15', '2', 'G0002');
