@@ -30,3 +30,37 @@ set codfac = concat('F',LPAD(num,4,'0'));
 INSERT INTO factura (cod_pag, fecha, pago_total, Metodo_Pago_cod_met, Orden_cod_orden) VALUES (codfac, fecha, pago_total, met_pago, orden);
 end //
 delimiter ;
+
+
+
+drop procedure if exists obt_piz; 
+DELIMITER // 
+create procedure obt_piz(FECHAA varchar(4))
+BEGIN
+
+SELECT MONTH(o.fecha) AS MES, COUNT(*) AS CANTIDAD, SUM(p.precio) AS TOTAL FROM detalle_pizza p, orden o WHERE p.Orden_cod_orden = o.cod_orden and YEAR(o.fecha) = FECHAA GROUP BY MONTH(o.fecha);
+end //
+delimiter ;
+
+
+drop procedure if exists obt_gas; 
+DELIMITER // 
+create procedure obt_gas(FECHAA varchar(4))
+BEGIN
+
+SELECT MONTH(o.fecha) AS MES, COUNT(*) AS CANTIDAD, SUM(p.precio) AS TOTAL FROM detalle_gaseosa p, orden o WHERE p.Orden_cod_orden = o.cod_orden and YEAR(o.fecha) = FECHAA GROUP BY MONTH(o.fecha);
+end //
+delimiter ;
+
+
+
+drop procedure if exists obt_pro; 
+DELIMITER // 
+create procedure obt_pro(FECHAA varchar(4))
+BEGIN
+
+SELECT MONTH(o.fecha) AS MES, COUNT(*) AS CANTIDAD, SUM(p.precio) AS TOTAL FROM detalle_promocion p, orden o WHERE p.Orden_cod_orden = o.cod_orden and YEAR(o.fecha) = FECHAA GROUP BY MONTH(o.fecha);
+end //
+delimiter ;
+
+-- 
