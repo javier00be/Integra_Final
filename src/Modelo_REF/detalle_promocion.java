@@ -8,7 +8,7 @@ package Modelo_REF;
  *
  * @author sebas
  */
-public class detalle_promocion {
+ public class detalle_promocion {
     private orden ord;
     private promocion_pizza prom;
     private int cantidad;

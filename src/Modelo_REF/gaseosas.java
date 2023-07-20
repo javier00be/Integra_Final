@@ -15,10 +15,18 @@ public class gaseosas {
     private String marca;
     private double precio;
     private String tamaño;
+    private int stock;
 
-    public gaseosas() {
+    public gaseosas(String cod_gaseosa, String descripcion, String imagen, String marca, double precio, String tamaño, int stock) {
+        this.cod_gaseosa = cod_gaseosa;
+        this.descripcion = descripcion;
+        this.imagen = imagen;
+        this.marca = marca;
+        this.precio = precio;
+        this.tamaño = tamaño;
+        this.stock = stock;
     }
-
+    
     public String getCod_gaseosa() {
         return cod_gaseosa;
     }
@@ -65,6 +73,14 @@ public class gaseosas {
 
     public void setTamaño(String tamaño) {
         this.tamaño = tamaño;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
     
     

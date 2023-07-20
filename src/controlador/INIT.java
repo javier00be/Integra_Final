@@ -16,7 +16,7 @@ public class INIT {
     public static void main (String[] args){
         dao d = new dao();
         usuario usu = d.bususuario(1);//obj.bususuario(1)
-        Controlador_Empleado empleado = new Controlador_Empleado(usu);
+        Controlador_Empleado empleado = new Controlador_Empleado();
     }
 
 }
