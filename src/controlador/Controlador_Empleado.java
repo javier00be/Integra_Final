@@ -28,8 +28,8 @@ public class Controlador_Empleado implements ActionListener, MouseListener{
     dao obj = new dao();
 
     
-    public Controlador_Empleado(usuario usu) {
-        this.usu = usu;
+    public Controlador_Empleado() {
+
         this.empl.BTN_ANADI.addActionListener(this);
         this.empl.BTN_REMOVER.addActionListener(this);
         this.empl.BTN_VACIAR.addActionListener(this);
@@ -185,23 +185,36 @@ public class Controlador_Empleado implements ActionListener, MouseListener{
         Object v[]={cod,cantidad,precio};
         dt.addRow(v);
     }
-    
-    private boolean isNumeric(String str) {
-        if (str == null || str.length() == 0) {
-            return false;
+//    
+//    private boolean isNumeric(String str) {
+//        if (str == null || str.length() == 0) {
+//            return false;
+//        }
+//        try {
+//            Double.parseDouble(str);
+//            return true;
+//        } catch (NumberFormatException e) {
+//            return false;
+//        }
+//    }
+//    
+    public boolean NumeroRealEntero(String numero) {
+    boolean aux = true; 
+        for (int i = 0; i < numero.length(); i++) {
+            char c = numero.charAt(i);
+
+            if (!Character.isDigit(c)) {
+                aux = false;
+                break;
+            }
         }
-        try {
-            Double.parseDouble(str);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
+        return aux; 
+}
     
     public boolean eliminar(String cod){
         
         boolean hallar = false;
-        //extrae los 3 primeros
+        //extrae los 1 primeros
         String Pcod = cod.substring(0, 1);
         
         //agrega a una lista de acuerdo al producto
@@ -264,13 +277,6 @@ public class Controlador_Empleado implements ActionListener, MouseListener{
             String nom = "";
             int cant=0;
             
-            if(isNumeric(empl.TXTCANTIDAD.getText())){
-                cant = Integer.parseInt(empl.TXTCANTIDAD.getText());
-                
-            }else{
-                JOptionPane.showInputDialog("Se debe colocar un número en cantidad");
-                
-            }
             
             double precio = 0,canPRE;
             
@@ -299,8 +305,12 @@ public class Controlador_Empleado implements ActionListener, MouseListener{
 //                empl.TXTAREA.append(String.valueOf(empl.JT_PROMOCION.getValueAt(selectPr, 2)+"\n"));                
             }
              
+            
+            if(NumeroRealEntero(empl.TXTCANTIDAD.getText())){
+                cant = Integer.parseInt(empl.TXTCANTIDAD.getText());
+                
             if(precio==0.0 || nom=="" || cant==0){
-                JOptionPane.showInputDialog("wey falta señalar xd");
+                JOptionPane.showMessageDialog(null, "wey falta señalar xd");
             }else{
                 
             //se halla el precio por cantidad
@@ -336,6 +346,17 @@ public class Controlador_Empleado implements ActionListener, MouseListener{
             
             
             }
+                
+                
+                
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "Se debe colocar un número en cantidad");
+                
+            }
+            
+            
+
             
         }
         
@@ -351,7 +372,7 @@ public class Controlador_Empleado implements ActionListener, MouseListener{
                 
                 int selectedRow = empl.JT_CARRITO.getSelectedRow();                                               
 
-                if(isNumeric(String.valueOf(empl.JT_CARRITO.getValueAt(selectCA, 2)))){
+                if(NumeroRealEntero(String.valueOf(empl.JT_CARRITO.getValueAt(selectCA, 2)))){
                     Cod1 = String.valueOf(empl.JT_CARRITO.getValueAt(selectCA, 0));
                     monto = Double.parseDouble(String.valueOf(empl.JT_CARRITO.getValueAt(selectCA, 2)));
                     
@@ -489,8 +510,7 @@ public class Controlador_Empleado implements ActionListener, MouseListener{
                 empl.TXT_PAGO.setEditable(true);
             }else{
                 empl.TXT_PAGO.setEditable(false);
-            }
-            
+            }            
         }
         
         
@@ -504,18 +524,22 @@ public class Controlador_Empleado implements ActionListener, MouseListener{
             if(lisP!=null){
                 for(detalle_pizza dp:lisP){
                     obj.addlisdetallePiza(dp);
+                    obj.modSTOCK_PIZ(dp);
                 }                
             }
             
             if(lisG!=null){
                 for(detalle_gaseosa dp:lisG){
                     obj.addlisdetalleGase(dp);
+                    obj.modSTOCK_GAS(dp);
                 }                
             }            
             
             if(lisPR!=null){
                 for(detalle_promocion dp:lisPR){
                     obj.addlisdetallePromo(dp);
+                    obj.modSTOCK_PRO_P(dp);
+                    obj.modSTOCK_PRO_G(dp);
                 }                
             }
 

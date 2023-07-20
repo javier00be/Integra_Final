@@ -92,7 +92,6 @@ public class dao {
         return lis;    
     }     
 
-
     public pizza_categoria buscat(String cod) {
         List<pizza_categoria> lis=new ArrayList();
         pizza_categoria a = null;
@@ -127,14 +126,13 @@ public class dao {
             PreparedStatement st=cn.prepareStatement(sql);
             ResultSet rs=st.executeQuery();
             while(rs.next()){
-                pizza a=new pizza();
-                a.setCod_pizza(rs.getString(1));
-                a.setDetalle(rs.getString(2));
-                a.setPrecio(rs.getDouble(3));
-                a.setCate(buscat(rs.getString(4)));
-                a.setTam(bustam(rs.getInt(5)));
-                
-                
+                pizza a=new pizza(rs.getString(1),rs.getString(2),buscat(rs.getString(4)),rs.getDouble(3),bustam(rs.getInt(5)),rs.getInt(6));
+//                a.setCod_pizza(rs.getString(1));
+//                a.setDetalle(rs.getString(2));
+//                a.setPrecio(rs.getDouble(3));
+//                a.setCate(buscat(rs.getString(4)));
+//                a.setTam(bustam(rs.getInt(5)));
+//                a.setStock(rs.getInt(6));                
                 lis.add(a);
             }
         }catch(Exception ex){
@@ -156,12 +154,13 @@ public class dao {
             st.setString(1, cod);
             ResultSet rs=st.executeQuery();
             while(rs.next()){
-                a=new pizza();
-                a.setCod_pizza(rs.getString(1));
-                a.setDetalle(rs.getString(2));
-                a.setPrecio(rs.getDouble(3));
-                a.setCate(buscat(rs.getString(4)));
-                a.setTam(bustam(rs.getInt(5)));
+                a=new pizza(rs.getString(1),rs.getString(2),buscat(rs.getString(4)),rs.getDouble(3),bustam(rs.getInt(5)),rs.getInt(6));
+//                a.setCod_pizza(rs.getString(1));
+//                a.setDetalle(rs.getString(2));
+//                a.setPrecio(rs.getDouble(3));
+//                a.setCate(buscat(rs.getString(4)));
+//                a.setTam(bustam(rs.getInt(5)));
+//                a.setStock(rs.getInt(6));
                 lis.add(a);
             }
         }catch(Exception ex){
@@ -183,13 +182,14 @@ public class dao {
             PreparedStatement st=cn.prepareStatement(sql);
             ResultSet rs=st.executeQuery();
             while(rs.next()){
-                gaseosas a=new gaseosas();
-                a.setCod_gaseosa(rs.getString(1));
-                a.setMarca(rs.getString(2));
-                a.setTamaño(rs.getString(3));
-                a.setPrecio(rs.getDouble(4));
-                a.setDescripcion(rs.getString(5));
-                a.setImagen(rs.getString(6));
+                gaseosas a=new gaseosas(rs.getString(1),rs.getString(5),rs.getString(6),rs.getString(2),rs.getDouble(4),rs.getString(3),rs.getInt(7));
+//                a.setCod_gaseosa(rs.getString(1));
+//                a.setMarca(rs.getString(2));
+//                a.setTamaño(rs.getString(3));
+//                a.setPrecio(rs.getDouble(4));
+//                a.setDescripcion(rs.getString(5));
+//                a.setImagen(rs.getString(6));
+//                a.setStock(rs.getInt(7));
                 lis.add(a);
             }
         }catch(Exception ex){
@@ -212,13 +212,14 @@ public class dao {
             st.setString(1, cod);
             ResultSet rs=st.executeQuery();
             while(rs.next()){
-                a=new gaseosas();
-                a.setCod_gaseosa(rs.getString(1));
-                a.setMarca(rs.getString(2));
-                a.setTamaño(rs.getString(3));
-                a.setPrecio(rs.getDouble(4));
-                a.setDescripcion(rs.getString(5));
-                a.setImagen(rs.getString(6));
+                a=new gaseosas(rs.getString(1),rs.getString(5),rs.getString(6),rs.getString(2),rs.getDouble(4),rs.getString(3),rs.getInt(7));
+//                a.setCod_gaseosa(rs.getString(1));
+//                a.setMarca(rs.getString(2));
+//                a.setTamaño(rs.getString(3));
+//                a.setPrecio(rs.getDouble(4));
+//                a.setDescripcion(rs.getString(5));
+//                a.setImagen(rs.getString(6));
+//                a.setStock(rs.getInt(7));
                 lis.add(a);
             }
         }catch(Exception ex){
@@ -239,15 +240,15 @@ public class dao {
             PreparedStatement st=cn.prepareStatement(sql);
             ResultSet rs=st.executeQuery();
             while(rs.next()){
-                promocion_pizza a=new promocion_pizza();
-                a.setCod_prom(rs.getString(1));
-                a.setNombre(rs.getString(2));
-                a.setCant_pizza(rs.getInt(3));
-                a.setCant_gaseosa(rs.getInt(4));
-                a.setImagen(rs.getString(5));
-                a.setPrecio(rs.getDouble(6));
-                a.setPizza(buspizza(rs.getString(7)));
-                a.setGase(busgaseosas(rs.getString(8)));
+                promocion_pizza a=new promocion_pizza(rs.getInt(4),rs.getInt(3),rs.getString(1),busgaseosas(rs.getString(8)),rs.getString(5),rs.getString(2),buspizza(rs.getString(7)),rs.getDouble(6));
+//                a.setCod_prom(rs.getString(1));
+//                a.setNombre(rs.getString(2));
+//                a.setCant_pizza(rs.getInt(3));
+//                a.setCant_gaseosa(rs.getInt(4));
+//                a.setImagen(rs.getString(5));
+//                a.setPrecio(rs.getDouble(6));
+//                a.setPizza(buspizza(rs.getString(7)));
+//                a.setGase(busgaseosas(rs.getString(8)));
                 lis.add(a);
             }
         }catch(Exception ex){
@@ -269,15 +270,15 @@ public class dao {
             st.setString(1, cod);
             ResultSet rs=st.executeQuery();
             while(rs.next()){
-                a=new promocion_pizza();
-                a.setCod_prom(rs.getString(1));
-                a.setNombre(rs.getString(2));
-                a.setCant_pizza(rs.getInt(3));
-                a.setCant_gaseosa(rs.getInt(4));
-                a.setImagen(rs.getString(5));
-                a.setPrecio(rs.getDouble(6));
-                a.setPizza(buspizza(rs.getString(7)));
-                a.setGase(busgaseosas(rs.getString(8)));
+                a=new promocion_pizza(rs.getInt(4),rs.getInt(3),rs.getString(1),busgaseosas(rs.getString(8)),rs.getString(5),rs.getString(2),buspizza(rs.getString(7)),rs.getDouble(6));
+//                a.setCod_prom(rs.getString(1));
+//                a.setNombre(rs.getString(2));
+//                a.setCant_pizza(rs.getInt(3));
+//                a.setCant_gaseosa(rs.getInt(4));
+//                a.setImagen(rs.getString(5));
+//                a.setPrecio(rs.getDouble(6));
+//                a.setPizza(buspizza(rs.getString(7)));
+//                a.setGase(busgaseosas(rs.getString(8)));
                 lis.add(a);
             }
         }catch(Exception ex){
@@ -323,6 +324,34 @@ public class dao {
             String sql="select * from usuario where cod_usu=?";
             PreparedStatement st=cn.prepareStatement(sql);
             st.setInt(1, cod);
+            ResultSet rs=st.executeQuery();
+            while(rs.next()){
+                a=new usuario();
+                a.setCod_usu(rs.getInt(1));
+                a.setNombre(rs.getString(2));                
+                a.setCorreo(rs.getString(3));
+                a.setContraseña(rs.getString(4));
+                a.setRol(rs.getString(5));
+                lis.add(a);
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+          try{ cn.close();}catch(Exception ex2){}
+
+        }
+        return a;    
+    }
+        
+        
+    public usuario bususuario(String cod) {
+        List<usuario> lis=new ArrayList();
+        usuario a = null;
+        Connection cn=MySQLConexion.getConexion();
+        try{
+            String sql="select * from usuario where correo=?";
+            PreparedStatement st=cn.prepareStatement(sql);
+            st.setString(1, cod);
             ResultSet rs=st.executeQuery();
             while(rs.next()){
                 a=new usuario();
@@ -665,6 +694,163 @@ public class dao {
         }
         return a;
     } 
+     
+    
+    public int utimo(){
+        int a = 0;
+        Connection cn=MySQLConexion.getConexion();
+        try{
+            String sql="select MAX(cod_orden) from orden";
+            PreparedStatement st=cn.prepareStatement(sql);
+            ResultSet rs=st.executeQuery();
+            while(rs.next()){
+                a = rs.getInt(1);
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+          try{ cn.close();}catch(Exception ex2){}
+
+        }
+        return a;
+    }
+    
+    
+    public void modSTOCK_PIZ(detalle_pizza detP){
+        Connection cn=MySQLConexion.getConexion();
+        pizza piz =  buspizza(detP.getPiz().getCod_pizza());
+        int stock = 0;
         
+        stock = piz.getStock() - detP.getCantidad() ;
+        try{
+            String sql="UPDATE pizza SET stock = ? WHERE cod_pizza ='"+piz.getCod_pizza()+"'";/*detP.getPiz().getCod_pizza()*/
+            PreparedStatement st=cn.prepareStatement(sql);
+
+            st.setInt(1, stock);
+            st.executeUpdate();
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+          try{ cn.close();}catch(Exception ex2){}
+        }
+    }
+    
+    
+    public void modSTOCK_GAS(detalle_gaseosa detG){
+        Connection cn=MySQLConexion.getConexion();
+        gaseosas gas =  busgaseosas(detG.getGas().getCod_gaseosa());
+        int stock = 0;
         
+        stock = gas.getStock() - detG.getCantidad() ;
+        try{
+            String sql="UPDATE gaseosa SET stock = ? WHERE cod_gaseosa ='"+gas.getCod_gaseosa()+"'";/*detP.getPiz().getCod_pizza()*/
+            PreparedStatement st=cn.prepareStatement(sql);
+
+            st.setInt(1, stock);
+            st.executeUpdate();
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+          try{ cn.close();}catch(Exception ex2){}
+        }
+    }
+    
+    
+    public void modSTOCK_PRO_P(detalle_promocion detR){
+        Connection cn=MySQLConexion.getConexion();
+        promocion_pizza pro =  buspromo(detR.getProm().getCod_prom());
+        pizza piz =  buspizza(detR.getProm().getPizza().getCod_pizza());
+        
+        int stockP = 0;
+        
+        stockP = piz.getStock() - (detR.getCantidad() * detR.getProm().getCant_pizza()) ;
+        try{
+            String sql="UPDATE pizza SET stock = ? WHERE cod_pizza ='"+piz.getCod_pizza()+"'";/*detP.getPiz().getCod_pizza()*/
+            PreparedStatement st=cn.prepareStatement(sql);
+
+            st.setInt(1, stockP);
+            st.executeUpdate();
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+          try{ cn.close();}catch(Exception ex2){}
+        }
+    }
+    
+    
+    public void modSTOCK_PRO_G(detalle_promocion detR){
+        Connection cn=MySQLConexion.getConexion();
+        promocion_pizza pro =  buspromo(detR.getProm().getCod_prom());
+        gaseosas gas =  busgaseosas(detR.getProm().getGase().getCod_gaseosa());
+        
+        int stockG = 0;
+        
+        stockG = gas.getStock() - (detR.getCantidad() *detR.getProm().getCant_gaseosa());
+        try{
+            String sql="UPDATE gaseosa SET stock = ? WHERE cod_gaseosa ='"+gas.getCod_gaseosa()+"'";/*detP.getPiz().getCod_pizza()*/
+            PreparedStatement st=cn.prepareStatement(sql);
+
+            st.setInt(1, stockG);
+            st.executeUpdate();
+                
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+          try{ cn.close();}catch(Exception ex2){}
+        }
+    }
+    
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    public boolean delprom(String id) {
+        Connection cn=MySQLConexion.getConexion();
+        try {
+            String sql = "DELETE FROM promocion_pizza WHERE cod_prom = '"+id+"'";
+            PreparedStatement st = cn.prepareStatement(sql);
+//            st.setString(1, id);
+            st.execute();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+            return false;
+        } finally {
+            try {
+                cn.close();
+            } catch (SQLException ex) {
+                System.out.println(ex.toString());
+            }
+        }
+    }
+    
+    
+    public void addpromociones(promocion_pizza prom){
+        Connection cn=MySQLConexion.getConexion();
+        pizza pizz=prom.getPizza();
+        gaseosas gas=prom.getGase();
+        try {
+            String sql = "call nuevo_promocion_pizza (?, ?, ?, ?, ?, ?, ?)";
+            CallableStatement st = cn.prepareCall(sql);
+            st.setString(1, prom.getNombre());
+            st.setInt(2, prom.getCant_pizza());
+            st.setInt(3, prom.getCant_gaseosa());
+            st.setString(4, prom.getImagen());
+            st.setDouble(5, prom.getPrecio());
+            st.setString(6, pizz.getCod_pizza());
+            st.setString(7, gas.getCod_gaseosa());
+            st.executeUpdate();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try { cn.close(); } catch (Exception ex2) {
+            }
+        }
+        
+    }
 }

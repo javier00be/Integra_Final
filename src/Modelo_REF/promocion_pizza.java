@@ -18,9 +18,27 @@ public class promocion_pizza {
     private pizza pizza;
     private double precio;
 
-    public promocion_pizza() {
+    public promocion_pizza(int cant_gaseosa, int cant_pizza, String cod_prom, gaseosas gase, String imagen, String nombre, pizza pizza, double precio) {
+        this.cant_gaseosa = cant_gaseosa;
+        this.cant_pizza = cant_pizza;
+        this.cod_prom = cod_prom;
+        this.gase = gase;
+        this.imagen = imagen;
+        this.nombre = nombre;
+        this.pizza = pizza;
+        this.precio = precio;
     }
 
+    public promocion_pizza(int cant_gaseosa, int cant_pizza, gaseosas gase, String imagen, String nombre, pizza pizza, double precio) {
+        this.cant_gaseosa = cant_gaseosa;
+        this.cant_pizza = cant_pizza;
+        this.gase = gase;
+        this.imagen = imagen;
+        this.nombre = nombre;
+        this.pizza = pizza;
+        this.precio = precio;
+    }
+    
     public int getCant_gaseosa() {
         return cant_gaseosa;
     }

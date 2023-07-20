@@ -14,9 +14,18 @@ public class pizza {
     private pizza_categoria cate;
     private double precio;
     private tamaño tam;
+    private int stock;
 
-    public pizza() {
+    public pizza(String cod_pizza, String detalle, pizza_categoria cate, double precio, tamaño tam, int stock) {
+        this.cod_pizza = cod_pizza;
+        this.detalle = detalle;
+        this.cate = cate;
+        this.precio = precio;
+        this.tam = tam;
+        this.stock = stock;
     }
+    
+    
 
     public String getCod_pizza() {
         return cod_pizza;
@@ -56,6 +65,14 @@ public class pizza {
 
     public void setTam(tamaño tam) {
         this.tam = tam;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
     
     

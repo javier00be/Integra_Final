@@ -8,16 +8,6 @@
  */
 
 -- select cod_orden from orden ORDER BY cod_orden DESC LIMIT 1
-	begin DROP procedure IF EXISTS FAC end 
-go
-	create procedure factura
-            @fecha date, @pago_total decimal(5,2), @met_pago int, @orden int
-	as
-	declare @codfac varchar(5)=(select 'F'+right('00000'+convert(varchar,isnull(Max(right(Trabajadores_id,4)),0)+1),4) from Trabajadores);
-        INSERT INTO factura (cod_pag, fecha, pago_total, Metodo_Pago_cod_met, Orden_cod_orden) VALUES (@codfac, @fecha, @pago_total, @met_pago, @orden)
-go
-
-
 
 drop procedure if exists nuevo_factura; 
 DELIMITER // 
@@ -63,4 +53,40 @@ SELECT MONTH(o.fecha) AS MES, COUNT(*) AS CANTIDAD, SUM(p.precio) AS TOTAL FROM 
 end //
 delimiter ;
 
--- 
+
+
+
+drop procedure if exists nuevo_promocion_pizza; 
+DELIMITER //
+
+CREATE PROCEDURE nuevo_promocion_pizza(
+  IN nom VARCHAR(100),
+  IN cantpizza INT,
+  IN cantgaseosa INT,
+  IN im VARCHAR(100),
+  IN prec DECIMAL(10, 2),
+  IN Pizzacodpizza VARCHAR(50),
+  IN gaseosacodgaseosa VARCHAR(50)
+)
+BEGIN
+  DECLARE num INT;
+  DECLARE codprom CHAR(5);
+
+  -- Verificar si el valor de Pizzacodpizza existe en la tabla pizza
+  DECLARE pizzaExists INT;
+  SELECT COUNT(*) INTO pizzaExists FROM pizza WHERE cod_pizza = Pizzacodpizza;
+  
+  IF pizzaExists = 0 THEN
+    SIGNAL SQLSTATE '45000'
+    SET MESSAGE_TEXT = 'El valor de Pizzacodpizza no existe en la tabla pizza.';
+  ELSE
+    SELECT IFNULL(MAX(CONVERT(SUBSTRING(cod_prom, 2), SIGNED INTEGER)), 0) + 1 INTO num FROM promocion_pizza;
+  
+    SET codprom = CONCAT('R', LPAD(num, 4, '0')); 
+  
+    INSERT INTO promocion_pizza (cod_prom, nombre, cant_pizza, cantidad_gaseosa, img, precio, Pizza_cod_pizza, gaseosa_cod_gaseosa)
+    VALUES (codprom, nom, cantpizza, cantgaseosa, im, prec, Pizzacodpizza, gaseosacodgaseosa);
+  END IF;
+END //
+
+DELIMITER ;

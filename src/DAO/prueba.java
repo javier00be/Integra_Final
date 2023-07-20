@@ -14,12 +14,16 @@ import java.util.*;
 public class prueba {
     public static void main(String[] args) {
         dao d = new dao();
-        dao_grafic dou = new dao_grafic();
+//        dao_grafic dou = new dao_grafic();
         
-        List<zgrafico_FAC_x_MES> list = dou.listgrafPIZ_MES("2023");
-        for(zgrafico_FAC_x_MES x:list){
-            System.out.println(x.getCantidad()+"--"+x.getMes()+"--"+x.getSuma());
-        }
+        usuario usu = d.bususuario("javier32@gmail.com");
+        
+        System.out.println(usu.getRol());
+        
+//        List<zgrafico_FAC_x_MES> list = dou.listgrafPIZ_MES("2023");
+//        for(zgrafico_FAC_x_MES x:list){
+//            System.out.println(x.getCantidad()+"--"+x.getMes()+"--"+x.getSuma());
+//        }
 //        String cod = "PRO0001";
 //        String Pcod = cod.substring(0, 3);
 //        System.out.println(""+Pcod);
@@ -48,12 +52,12 @@ public class prueba {
 //            System.out.println(cat.getCod_cate()+" -- "+cat.getNombre()+" -- "+cat.getImagen()+" -- "+cat.getDescripcion());
 //        
 //        List<pizza>  lispizza = d.lispizza();
-        
+//        
 //        for(pizza piz:lispizza){
 //            System.out.println(piz.getCod_pizza()+" -- "+piz.getDetalle()+" -- "+piz.getPrecio()+" -- "+piz.getCate().getNombre()+" -- "+piz.getTam().getNombre());
 //        }
 //            
-//        pizza piza = d.buspizza("PIZ0002");
+//        pizza piza = d.buspizza("P0002");
 //            System.out.println(piza.getCod_pizza()+" -- "+piza.getDetalle()+" -- "+piza.getPrecio()+" -- "+piza.getCate().getNombre()+" -- "+piza.getTam().getNombre());            
     
             
@@ -62,14 +66,17 @@ public class prueba {
 //        for(gaseosas gas:lisgas){
 //            System.out.println(gas.getCod_gaseosa()+" -- "+gas.getMarca()+" -- "+gas.getDescripcion()+" -- "+gas.getTamaño()+" -- "+gas.getImagen());
 //        }        
-//        gaseosas gase = d.busgaseosas("GAS0001");
+//        gaseosas gase = d.busgaseosas("G0001");
 //        System.out.println(gase.getCod_gaseosa()+" -- "+gase.getMarca()+" -- "+gase.getDescripcion()+" -- "+gase.getTamaño()+" -- "+gase.getImagen());
             
 
-//        List<promocion_pizza>  lispromo = d.lispromo();        
-//        for(promocion_pizza pro:lispromo){
-//            System.out.println(pro.getCod_prom()+" -- "+pro.getNombre()+" -- "+pro.getGase().getMarca()+" -- "+pro.getCant_gaseosa()+" -- "+pro.getPizza().getCate().getNombre()+" -- "+pro.getCant_pizza()+" -- "+pro.getPrecio());
-//        }        
+        List<promocion_pizza>  lispromo = d.lispromo();        
+        for(promocion_pizza pro:lispromo){
+            System.out.println(pro.getCod_prom()+" -- "+pro.getNombre()+" -- "+pro.getGase().getMarca()+" -- "+pro.getCant_gaseosa()+" -- "+pro.getPizza().getCate().getNombre()+" -- "+pro.getCant_pizza()+" -- "+pro.getPrecio());
+        }        
+        
+        System.out.println(d.buspromo("R0001").getNombre());
+        //buspromo
 //
 //
 //            
@@ -140,5 +147,154 @@ public class prueba {
 //        
 //                d.addfactura(a);
         
+
+
+
+
+
+
+
+
+
+
+
+
+//        System.out.println(d.utimo());
+//        int O = 20;
+//        
+//        String fecha = "";
+//        String nombre = "";
+//        String DNI = "";
+//        String NOM = "";
+//        double subtotal=0;
+//        double igv = 0;
+//        double total=0;
+//        
+//        List<detalle_pizza> lisP1=new ArrayList();
+//        List<detalle_gaseosa> lisG1=new ArrayList();
+//        List<detalle_promocion> lisPR1=new ArrayList();
+//                
+//        for(factura fa:d.lisfactura()){
+//            if(fa.getOrd().getCod_orden() == O){
+//                total = fa.getPago();
+//                fecha = fa.getFecha();
+//            
+//                for(orden ord: d.lisorden()){
+//                    if(ord.getCod_orden() == O){
+//                        nombre = ord.getNombre();
+//                        //extrae los 1 primeros
+//                    int largo = nombre.length(); 
+//                     DNI = nombre.substring(0, 8);
+//                     NOM = nombre.substring(9, largo);
+//                     
+//                     for(detalle_pizza piz:d.lisdetallePiza()){
+//                         if(piz.getOrd().getCod_orden() == O){
+//                             lisP1.add(piz);
+//                         }
+//                     }
+//                     
+//                     
+//                     for(detalle_gaseosa gas:d.lisdetalleGas()){
+//                         if(gas.getOrd().getCod_orden() == O){
+//                             lisG1.add(gas);
+//                         }
+//                     }                     
+//                     
+//                     for(detalle_promocion pro:d.lisdetallePro()){
+//                         if(pro.getOrd().getCod_orden() == O){
+//                             lisPR1.add(pro);
+//                         }
+//                     }                     
+//                     //////
+//                     
+//                    }
+//                }
+//            }
+//        }
+//        
+//        
+//        
+//        //comprobacion XD
+//            if(lisP1!=null){
+//                for(detalle_pizza dp:lisP1){
+//                    System.out.println("PIZ:"+dp.getPago());
+//                }                
+//            }
+//            
+//            if(lisG1!=null){
+//                for(detalle_gaseosa dp:lisG1){
+//                    System.out.println("GAS:"+dp.getPrecio());
+//                }                
+//            }            
+//            
+//            if(lisPR1!=null){
+//                for(detalle_promocion dp:lisPR1){
+//                    System.out.println("PRO:"+dp.getPrecio());
+//                }                
+//            }
+//
+//        subtotal = (100*total)/118;
+//        igv = subtotal*0.18;     
+//        System.out.println(total+"--"+igv+"--"+subtotal+"--"+fecha+"--"+DNI+"--"+NOM);
+//    }
+//    
+//    dao d = new dao();
+//
+//    
+//    // int O = d.utimo();
+//    public void xd(int O){
+//        String fecha = "";
+//        String nombre = "";
+//        String DNI = "";
+//        String NOM = "";
+//        double subtotal=0;
+//        double igv = 0;
+//        double total=0;
+//        
+//        List<detalle_pizza> lisP1=new ArrayList();
+//        List<detalle_gaseosa> lisG1=new ArrayList();
+//        List<detalle_promocion> lisPR1=new ArrayList();
+//                
+//        for(factura fa:d.lisfactura()){
+//            if(fa.getOrd().getCod_orden() == O){
+//                total = fa.getPago();
+//                fecha = fa.getFecha();
+//            
+//                for(orden ord: d.lisorden()){
+//                    if(ord.getCod_orden() == O){
+//                        nombre = ord.getNombre();
+//                        //extrae los 1 primeros
+//                     DNI = nombre.substring(0, 8);
+//                     NOM = nombre.substring(9, 20);
+//                     
+//                     for(detalle_pizza piz:d.lisdetallePiza()){
+//                         if(piz.getOrd().getCod_orden() == O){
+//                             lisP1.add(piz);
+//                         }
+//                     }
+//                     
+//                     
+//                     for(detalle_gaseosa gas:d.lisdetalleGas()){
+//                         if(gas.getOrd().getCod_orden() == O){
+//                             lisG1.add(gas);
+//                         }
+//                     }                     
+//                     
+//                     for(detalle_promocion pro:d.lisdetallePro()){
+//                         if(pro.getOrd().getCod_orden() == O){
+//                             lisPR1.add(pro);
+//                         }
+//                     }                     
+//                     //////
+//                     
+//                    }
+//                }
+//            }
+//        }
+        
+        
+        
+        
     }
+    
 }

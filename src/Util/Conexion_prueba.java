@@ -9,7 +9,7 @@ package Util;
  * @author sebas
  */
 public class Conexion_prueba {
-    public static void main(String[] args) {
-        MySQLConexion.getConexion();
-    }
+//    public static void main(String[] args) {
+//        MySQLConexion.getConexion();
+//    }
 }
