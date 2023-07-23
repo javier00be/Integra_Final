@@ -10,8 +10,8 @@ package controlador;
  * @author sebas
  */
 public class XD {
-    public static void main (String[] args){
-
-        Controlador_grafico grafico = new Controlador_grafico();
-    }
+//    public static void main (String[] args){
+//
+//        Controlador_grafico grafico = new Controlador_grafico();
+//    }
 }
