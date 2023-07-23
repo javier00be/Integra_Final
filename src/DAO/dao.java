@@ -19,7 +19,22 @@ import java.util.*;
  * @author sebas
  */
 public class dao {
+    public boolean NumeroDouble(String numero) {
+    boolean aux= false;
     
+    for (int i = 0; i < numero.length(); i++) {
+        char c = numero.charAt(i);
+        if (Character.isDigit(c)) {
+            continue;
+        } else if (c == '.' && !aux) {
+            aux = true;
+        } else {
+            return false;
+        }
+    }
+
+    return true;
+}
     public List<tamaño> listam() {
         List<tamaño> lis=new ArrayList();
         Connection cn=MySQLConexion.getConexion();
